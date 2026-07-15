@@ -6,7 +6,7 @@ mock API layer, no real backend. This is your project for the month.
 
 ## Setup
 
-- **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
+- **Stack:** React + Vite + **TypeScript**, with **React Router**.
 - **Data:** a **mock API layer** over an in-memory + **localStorage** dataset (async, latency, query params).
   **[MSW](https://mswjs.io/)** recommended. Seed a resource with **~10,000 rows** to exercise performance
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended): products carry

@@ -84,7 +84,7 @@ flowchart LR
 ## Shared conventions
 
 - **Stack** — SPA projects: React + Vite + **TypeScript** + React Router. Next.js projects: **App Router**,
-  server-first. **Avoid `any`.**
+  server-first.
 - **Data** — mock, no real backend; seed with **faker**. Admin/Kanban persist to localStorage (junior reads
   the module directly; middle/senior go through a mock API layer, **MSW** recommended). Ecommerce/Blog use
   **Next.js route handlers**.

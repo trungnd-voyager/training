@@ -5,7 +5,7 @@ Mock data, no real backend. This is your project for the month.
 
 ## Setup
 
-- **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
+- **Stack:** React + Vite + **TypeScript**, with **React Router**.
 - **Data:** no real backend. Mock data in a module **persisted to localStorage** (survives reload) — seed
   **~60 products, ~40 orders, ~30 customers**
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended):

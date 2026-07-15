@@ -5,7 +5,7 @@ Data comes from a mock API layer, not a real backend. This is your project for t
 
 ## Setup
 
-- **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
+- **Stack:** React + Vite + **TypeScript**, with **React Router**.
 - **Data:** no real backend. A **mock API layer** over an in-memory + **localStorage** dataset (async, latency, query params).
   **[MSW (Mock Service Worker)](https://mswjs.io/)** recommended. Seed **~60 products, ~40 orders,
   ~30 customers** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended):
