@@ -13,7 +13,7 @@
 
 ## Code quality
 
-- [ ] TypeScript, avoids `any`
+- [ ] Strict TypeScript
 - [ ] Updates state immutably
 - [ ] Sensible components, not much repetition
 - [ ] Money formatted from cents

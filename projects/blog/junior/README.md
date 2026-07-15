@@ -7,7 +7,7 @@ backend. This is your project for the month.
 
 - **Stack:** **Next.js (App Router)** + **TypeScript**, built **server-first** — pages are **Server
   Components** that read the mock content; add `'use client'` only where you need interactivity (search box,
-  editor preview). Avoid `any`.
+  editor preview).
 - **Markdown:** render post bodies with a library (e.g. `react-markdown`). Don't hand-parse markdown.
 - **Data:** mock posts in a module — **~15 posts**
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended); Server Components

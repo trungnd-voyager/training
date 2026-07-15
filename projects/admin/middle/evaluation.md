@@ -13,7 +13,7 @@
 ## Code quality
 
 - [ ] Clean API boundary — the UI never touches the store
-- [ ] Typed requests/responses, avoids `any`
+- [ ] Strict TypeScript
 - [ ] Optimistic + rollback without corrupting state
 
 ## Workflow

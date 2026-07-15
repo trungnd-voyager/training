@@ -23,7 +23,7 @@ A month-long, build-to-spec program for new recruits. You pick one **project**, 
 | **Admin Dashboard**       | A shop back-office: products, orders, customers     | React + Vite + React Router | [Junior](projects/admin/junior/) · [Middle](projects/admin/middle/) · [Senior](projects/admin/senior/)             |
 | **Kanban Board**          | A Trello-style board with drag-and-drop             | React + Vite + React Router | [Junior](projects/kanban/junior.md) · [Middle](projects/kanban/middle.md) · [Senior](projects/kanban/senior.md)          |
 | **E-commerce Storefront** | Catalog → cart → checkout, plus a small admin       | Next.js (App Router)        | [Junior](projects/ecommerce/junior.md) · [Middle](projects/ecommerce/middle.md) · [Senior](projects/ecommerce/senior.md) |
-| **Blog**                  | Public site + author dashboard + editorial workflow | Next.js (App Router)        | [Junior](projects/blog/junior.md) · [Middle](projects/blog/middle.md) · [Senior](projects/blog/senior.md)                |
+| **Blog**                  | Public site + author dashboard + editorial workflow | Next.js (App Router)        | [Junior](projects/blog/junior/) · [Middle](projects/blog/middle/) · [Senior](projects/blog/senior/)                |
 
 Each level is a folder with **`README.md`** (the spec the trainee builds), **`evaluation.md`** (a placement
 rubric, for leaders), and **`flow.md`** (a Mermaid screen-flow diagram).
@@ -106,7 +106,7 @@ flowchart LR
 
 ## Repo layout
 
-```
+```text
 projects/<project>/<level>/
     README.md          the spec (what the trainee builds)
     evaluation.md      placement rubric (for leaders)

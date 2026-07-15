@@ -5,7 +5,7 @@ and comments. Mock content, no real backend. This is your project for the month.
 
 ## Setup
 
-- **Stack:** Next.js (App Router) + **TypeScript**, end to end. Avoid `any`.
+- **Stack:** Next.js (App Router) + **TypeScript**, end to end.
 - **Content:** posts in a mock DB via **route handlers** (or MDX files). Render markdown/MDX with a library.
   **~15 posts** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended) —
   `slug, title, excerpt, body, tags[], authorId, status, publishedAt`. Mock users for authors.
