@@ -6,9 +6,9 @@ Mock data, no real backend. This is your project for the month.
 ## Setup
 
 - **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
-- **Data:** no real backend. Mock data in a module persisted to **localStorage** — seed **~60 products,
-  ~40 orders, ~30 customers** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker)
-  recommended). The UI reads and writes the module directly:
+- **Data:** no real backend. Mock data in a module **persisted to localStorage** (survives reload) — seed
+  **~60 products, ~40 orders, ~30 customers**
+  ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended):
 
   ```ts
   interface Product {
@@ -58,13 +58,12 @@ the active item highlighted, and a top bar. On mobile the sidebar collapses to a
 ### Shell & auth
 
 - [ ] Responsive shell; the active nav item reflects the current route.
-- [ ] A **mock login** against hardcoded users; a route guard sends logged-out visitors to `/login`
-      (a session in localStorage is enough).
+- [ ] A mock login against hardcoded users; a route guard sends logged-out visitors to `/login`
 
 ### Products
 
 - [ ] Table columns: name, SKU, category, price, stock, status, row actions (View / Edit / Delete).
-- [ ] Client-side search (name or SKU, live), sortable column headers, **pagination** (10/page) with a
+- [ ] Client-side search (name or SKU, live), sortable column headers, pagination (10/page) with a
       "showing 1–10 of 60" line; searching resets to page 1; empty state when nothing matches.
 - [ ] Prices formatted from cents; low-stock rows (`stock < 5`) flagged.
 - [ ] Create / Edit: a form with per-field validation (name/SKU required, price & stock ≥ 0,
@@ -83,8 +82,8 @@ the active item highlighted, and a top bar. On mobile the sidebar collapses to a
 
 ### Global
 
-- [ ] Success/error **toasts**; loading & empty states with simulated latency.
-- [ ] Data **persists across reload** (localStorage); zero console warnings.
+- [ ] Success/error toasts; loading & empty states with simulated latency.
+- [ ] Data persists across reload (localStorage); zero console warnings.
 
 ## Done check
 

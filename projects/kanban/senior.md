@@ -8,10 +8,12 @@ drag-and-drop, and a real test suite. No real backend. This is your project for 
 
 - **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
 - **Drag-and-drop:** **dnd-kit** (its keyboard sensor matters for the accessibility requirement).
-- **Data:** a **mock API layer** persisting boards/columns/cards (normalized) to localStorage, plus a
-  **real-time channel** so multiple tabs sync — a `BroadcastChannel` or polling is fine; a small WebSocket
-  mock is a stretch ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended for
-  seed data). Mock users carry a board `role` of `owner` or `member`.
+- **Data:** a **mock API layer** over an in-memory + **localStorage** dataset (async, latency); cards stored
+  **normalized**. **[MSW](https://mswjs.io/)** recommended. The shared localStorage store lets multiple tabs
+  sync via a **real-time channel** — a `storage` event, `BroadcastChannel`, or polling; a small WebSocket
+  mock is a stretch
+  ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended for seed data). Mock
+  users carry a board `role` of `owner` or `member`.
 - **Testing:** Vitest + React Testing Library + **Playwright** (E2E).
 - **Responsive:** the board works down to mobile.
 
@@ -35,8 +37,8 @@ drag-and-drop, and a real test suite. No real backend. This is your project for 
 
 ### Real-time collaboration
 
-- [ ] Another tab's move/edit appears **without a full reload** — via `BroadcastChannel`, polling, or a
-      WebSocket mock. State a choice and make it work.
+- [ ] Another tab's move/edit appears **without a full reload** — via a `storage` event, `BroadcastChannel`,
+      polling, or a WebSocket mock. State a choice and make it work.
 
 ### Concurrency & conflicts
 
@@ -57,7 +59,7 @@ drag-and-drop, and a real test suite. No real backend. This is your project for 
 
 - [ ] An **activity log** records moves/edits (who, what, when) on `/board/:id/activity`.
 - [ ] Meaningful unit + integration tests (reorder, conflict resolution, authorization).
-- [ ] **At least one Playwright E2E:** move a card, reload, order persisted; open a card via its URL.
+- [ ] **At least one Playwright E2E:** move a card in one tab and see it sync to a second tab; open a card via its URL.
 
 ## Done check
 

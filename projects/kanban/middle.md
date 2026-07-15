@@ -1,15 +1,15 @@
 # Project — Kanban Board
 
-Build a task board as a **client-side single-page app** — boards, an API layer for
-persistence, optimistic drag-and-drop, a modal route, and auth. No real backend. This is your project for
+Build a task board as a **client-side single-page app** — boards, an API layer,
+optimistic drag-and-drop, a modal route, and auth. No real backend. This is your project for
 the month.
 
 ## Setup
 
 - **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
 - **Drag-and-drop:** **dnd-kit** recommended.
-- **Data:** a **mock API layer** (async, latency) persisting boards/columns/cards to localStorage so they
-  survive reload; the UI talks to the layer, **not the raw store**. Store cards **normalized** — cards carry
+- **Data:** a **mock API layer** over an in-memory + **localStorage** dataset (async, latency).
+  **[MSW (Mock Service Worker)](https://mswjs.io/)** recommended. Store cards **normalized** — cards carry
   `labels` and an optional `dueDate`, boards an `ownerId`
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended for seed data). Plus
   mock users for login.

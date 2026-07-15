@@ -7,8 +7,8 @@ mock API layer, no real backend. This is your project for the month.
 ## Setup
 
 - **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
-- **Data:** a **mock API layer** (async, latency, query params) over an in-memory + localStorage dataset —
-  the UI never touches the raw array. Seed a resource with **~10,000 rows** to exercise performance
+- **Data:** a **mock API layer** over an in-memory + **localStorage** dataset (async, latency, query params).
+  **[MSW](https://mswjs.io/)** recommended. Seed a resource with **~10,000 rows** to exercise performance
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended): products carry
   `priceCents`, `stock`, `category`, `active`; orders a `status`; customers an `orderCount`. Mock users
   carry a `role` of `admin` / `editor` / `viewer`.
@@ -34,16 +34,15 @@ signed-in user's role; collapses on mobile.
 
 ### Core
 
-- [ ] Tables via the mock API layer with pagination/sort/filter as **URL-synced** query params;
+- [ ] Tables via the mock API layer with pagination/sort/filter as URL-synced query params;
       shareable, refresh-safe.
-- [ ] CRUD via the API layer with **optimistic** updates; dashboard sections load independently and reflect
+- [ ] CRUD via the API layer with optimistic updates; dashboard sections load independently and reflect
       a mutation without a full reload.
 
 ### Role-based access — enforced in the API layer
 
-- [ ] Roles `admin` / `editor` / `viewer`. The **API layer authorizes every mutation** and rejects an
-      unauthorized one **even if the UI allowed it** — the check lives in the data layer, not the component
-      (mirrors real server-side auth; don't trust the client). The UI also adapts to role.
+- [ ] Roles `admin` / `editor` / `viewer`. The API layer authorizes every mutation and rejects an
+      unauthorized one even if the UI allowed it — the check lives in the data layer, not the componen. The UI also adapts to role.
 
 ### Advanced querying
 
@@ -52,13 +51,13 @@ signed-in user's role; collapses on mobile.
 
 ### Performance at scale
 
-- [ ] The 10k-row resource uses **virtualization/windowing** (e.g. `@tanstack/react-virtual`, `ant.design table` or
+- [ ] The 10k-row resource uses **virtualization/windowing** (e.g. `@tanstack/react-virtual` or
       `react-window`) with API pagination, and stays smooth (no jank, no rendering 10k DOM nodes).
 
 ### Bulk, freshness & audit
 
 - [ ] **Bulk actions** (multi-select) with optimistic UI and **rollback on partial failure**.
-- [ ] Near-real-time updates via **polling** the API layer.
+- [ ] Near-real-time updates via polling the API layer.
 - [ ] An **activity log** records who changed what and when, surfaced on `/activity`.
 
 ### Accessibility

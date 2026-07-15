@@ -9,8 +9,9 @@ Mock data, no real backend. This is your project for the month.
 - **Drag-and-drop:** use a library — **dnd-kit** is recommended (it's accessible). Don't hand-roll HTML5
   drag events.
 - **Data:** mock data in a module, stored **normalized** (this shape matters — it's part of the exercise),
-  persisted to **localStorage** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker)
-  recommended for seed cards). The UI reads and writes the store directly:
+  **persisted to localStorage** (survives reload)
+  ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended for seed cards). The UI
+  reads and writes the store directly:
 
   ```ts
   interface Card {
@@ -79,7 +80,7 @@ Mock data, no real backend. This is your project for the month.
 
 ## Done check
 
-Cards drag within and across columns and survive reload; board/column/card CRUD all work; the modal is
-shareable and a refresh shows the full page; state stays consistent (never a lost or duplicated card).
+Cards drag within and across columns and survive reload; board/column/card CRUD all work; the modal is shareable and a
+refresh shows the full page; state stays consistent (never a lost or duplicated card).
 
 **Stretch (optional):** card colors beyond basic labels; a WIP limit per column.

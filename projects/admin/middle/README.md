@@ -6,12 +6,11 @@ Data comes from a mock API layer, not a real backend. This is your project for t
 ## Setup
 
 - **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
-- **Data:** no real backend. Write a **mock API layer** — an async module that simulates a REST API
-  (with latency and query params) over an in-memory + localStorage dataset. The UI talks to this layer,
-  **never to the raw array directly** — that boundary is part of the exercise. Seed **~60 products,
-  ~40 orders, ~30 customers** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker)
-  recommended): products carry `priceCents`, `stock`, `category`, `active`; orders a `status`; customers
-  an `orderCount`. Plus mock users for login.
+- **Data:** no real backend. A **mock API layer** over an in-memory + **localStorage** dataset (async, latency, query params).
+  **[MSW (Mock Service Worker)](https://mswjs.io/)** recommended. Seed **~60 products, ~40 orders,
+  ~30 customers** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended):
+  products carry `priceCents`, `stock`, `category`, `active`; orders a `status`; customers an `orderCount`.
+  Plus mock users for login.
 - **Testing:** Vitest + React Testing Library.
 - **Responsive:** shell and every screen work down to mobile.
 
@@ -39,27 +38,27 @@ collapses on mobile.
 
 ### Data tables (Products, Orders, Customers)
 
-- [ ] Each table pulls from the **mock API layer** (not the raw array).
-- [ ] Pagination, sort, and filtering are handled as **API query params** and **synced to the URL**
+- [ ] Each table pulls from the mock API layer.
+- [ ] Pagination, sort, and filtering are handled as API query params and synced to the URL
       (`useSearchParams`), e.g. `/products?page=2&sort=price:desc&category=Keyboards`. Sharing the URL
-      reproduces the view; refresh keeps it; the back button works.
+      reproduces the view; refresh keeps it.
 - [ ] Columns, cents → currency formatting, and empty states per resource.
 
 ### CRUD (Products)
 
-- [ ] Create / edit / delete through the API layer, with **optimistic** updates that **roll back** on failure.
+- [ ] Create / edit / delete through the API layer, with optimistic updates that roll back on failure.
 - [ ] Controlled form + validation (name/SKU required, price/stock ≥ 0, SKU unique); delete confirms first.
 
 ### Dashboard & Activity
 
 - [ ] Metric cards (total products, orders today, revenue) + one **chart** from mock aggregates.
-- [ ] Each dashboard section fetches its **own** data and **loads independently** — a slow section shows its
+- [ ] Each dashboard section fetches its own data and loads independently — a slow section shows its
       own spinner and doesn't block the rest of the page.
 - [ ] Activity feed on `/activity` records create / edit / delete through the API layer.
 
 ### App concerns
 
-- [ ] A consistent loading pattern per route; an **error boundary**; a catch-all **not-found** route.
+- [ ] A consistent loading pattern per route; an error boundary; a catch-allnot-found route.
 - [ ] Tests: unit tests for the query/table logic (sort/filter/paginate) + a couple of component tests.
 
 ## Done check
