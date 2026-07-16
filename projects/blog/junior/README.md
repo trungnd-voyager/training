@@ -48,7 +48,6 @@ content, no real backend. This is your project for the month.
 
 - **Accounts:** seed a few mock users — at least one **admin** (admins exist only in the seed data; nobody
   can sign up as one), plus some editors and viewers.
-
 - **Responsive:** every screen works from mobile to desktop.
 
 ## Screens & routes
@@ -87,8 +86,8 @@ content, no real backend. This is your project for the month.
 
 ### Editor dashboard
 
-- [ ] `/dashboard` is for editors and admins; a viewer who lands there is sent to `/login`. It lists the
-      signed-in editor's **own** posts with status.
+- [ ] `/dashboard` is for editors and admins: a signed-out visitor goes to `/login`, a signed-in **viewer**
+      is refused and sent back to `/`. It lists the signed-in editor's **own** posts with status.
 - [ ] Create / edit a post in the **Tiptap** rich-text editor; save writes to the module.
 - [ ] An editor moves their post **draft → in-review**, but **cannot publish it**. `/dashboard/review` is the
       **admin's** queue: the admin **approves** an in-review post, which publishes it.
