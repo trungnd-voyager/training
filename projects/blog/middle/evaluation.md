@@ -4,10 +4,13 @@
 
 - [ ] Post pages SSG (`generateStaticParams`) + ISR (`revalidate`)
 - [ ] `generateMetadata` per post (title/description/OG); a per-post OG image
-- [ ] Only published posts public; a draft slug 404s
-- [ ] Login/session; dashboard lists the author's posts
-- [ ] Tiptap editor; save via Server Action; draft → in-review → publish triggers revalidation; review queue
-- [ ] Comments via Server Action, optimistic
+- [ ] Public = published && !hidden; a draft or hidden slug 404s
+- [ ] Signup with the editor checkbox (editor vs viewer); login/session; admin seeded only
+- [ ] Dashboard gated to editor/admin, lists the editor's own posts
+- [ ] Tiptap editor; save via `onSubmit` → route handler; editor submits draft → in-review, cannot publish
+- [ ] Admin approves from the queue → published + revalidation
+- [ ] Comments via `onSubmit` → route handler, optimistic; sign-in required; no approval step
+- [ ] Admin toggles hide/show on any post/comment → revalidation; hiding keeps approval intact
 - [ ] loading/error/not-found; a caching/revalidation choice they can explain; sitemap/rss/robots
 - [ ] Tests: helpers + a couple of components
 

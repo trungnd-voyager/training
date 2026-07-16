@@ -2,14 +2,16 @@
 
 ## Specs
 
-- [ ] SSG + on-demand revalidation on publish (change is live immediately, not on a timer)
+- [ ] SSG + on-demand revalidation on approve and on hide/show (live immediately, not on a timer)
 - [ ] Can justify per route: SSG vs ISR vs dynamic
 - [ ] `generateMetadata` + dynamic OG via `next/og`; sitemap/rss/robots + JSON-LD `Article`
-- [ ] Workflow draft → in_review → published; roles author / editor / admin
-- [ ] Server-side authz: an author can't publish; an editor can; a forced author-publish is refused
-- [ ] Review queue; comment moderation (only approved comments public)
+- [ ] Signup editor checkbox; server assigns the role and refuses a signup requesting `admin`
+- [ ] Workflow draft → in_review → published; roles viewer / editor / admin; middleware gating
+- [ ] Server-side authz: an editor can't approve; only an admin can; a forged editor-approve is refused
+- [ ] Admin approval queue; sign-in required to comment (rejected server-side if not); no approval step
+- [ ] Admin-only hide/show on posts and comments, authorized server-side; public = published && !hidden
 - [ ] Server-side search reflected in the URL
-- [ ] Tests + Playwright E2E (author draft → editor publishes → public; unpublished not reachable)
+- [ ] Tests + Playwright E2E (editor draft → admin approves → public; unpublished/hidden not reachable)
 
 ## Code quality
 

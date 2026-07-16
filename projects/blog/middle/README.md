@@ -1,14 +1,17 @@
 # Project — Blog
 
-Build a blog on **Next.js (App Router)** — static generation, an author dashboard,
-and comments. Mock content, no real backend. This is your project for the month.
+Build a blog on **Next.js (App Router)** — static generation, accounts with roles, an
+editor dashboard, and comments. Mock content, no real backend. This is your project for the month.
 
 ## Setup
 
 - **Stack:** Next.js (App Router) + **TypeScript**, end to end.
 - **Content:** posts in a mock DB via **route handlers**; author in **[Tiptap](https://tiptap.dev/)** (store HTML, render sanitized).
   **~15 posts** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended) —
-  `slug, title, excerpt, body, tags[], authorId, status, publishedAt`. Mock users for authors.
+  `slug, title, excerpt, body, tags[], authorId, status, hidden, publishedAt`. Comments carry
+  `postId, authorId, body, createdAt, hidden`.
+- **Accounts:** mock users with a `role` of `viewer` / `editor` / `admin`. Seed at least one **admin** —
+  admins exist only in the seed data and cannot be created by signup.
 - **Testing:** Vitest + React Testing Library.
 - **Responsive:** every screen works from mobile to desktop.
 
@@ -21,8 +24,9 @@ and comments. Mock content, no real backend. This is your project for the month.
 | `/tag/[tag]`                                           | Tag listing      | Posts with a given tag                |
 | `/post/[slug]/opengraph-image`                         | OG image         | Share image per post                  |
 | `/sitemap.xml`, `/rss.xml`, `/robots.txt`              | SEO endpoints    | Discoverability                       |
-| `/dashboard`, `/dashboard/new`, `/dashboard/[id]/edit` | Author dashboard | Manage your posts                     |
-| `/dashboard/review`                                    | Review queue     | Posts awaiting review                 |
+| `/dashboard`, `/dashboard/new`, `/dashboard/[id]/edit` | Editor dashboard | Manage your own posts                 |
+| `/dashboard/review`                                    | Approval queue   | Admin approves posts                  |
+| `/signup`                                              | Sign up          | Create an account (editor checkbox)   |
 | `/login`                                               | Login            | Session sign-in                       |
 
 ## Feature specs
@@ -32,18 +36,37 @@ and comments. Mock content, no real backend. This is your project for the month.
 - [ ] Post pages are **statically generated** with `generateStaticParams`, and use **ISR** (`revalidate`) so
       new/edited posts appear without a rebuild.
 - [ ] Each post sets `generateMetadata`: title, description, Open Graph tags; a per-post OG image.
-- [ ] Only **published** posts are public; a draft slug 404s publicly.
+- [ ] A post is public only when **published and not hidden**; a draft or hidden slug 404s publicly.
 
-### Author dashboard (auth)
+### Accounts & roles
 
-- [ ] Login (mock authors) sets a session; `/dashboard` lists the author's own posts with status.
-- [ ] Create / edit a post in the **Tiptap** rich-text editor; save via a **Server Action**.
-- [ ] Draft → in-review → publish status control; publishing makes the post public (triggering revalidation);
-      `/dashboard/review` lists posts awaiting review.
+- [ ] `/signup`: email + password + a **"Sign up as an editor"** checkbox — checked creates an `editor`,
+      unchecked a `viewer`; it sets a session. `/login` signs in an existing mock user.
+- [ ] Roles: **viewer** (read + comment), **editor** (viewer + write their own posts), **admin** (approve
+      posts, hide/show anything). `/dashboard` is gated to editor/admin.
+
+### Editor dashboard
+
+- [ ] `/dashboard` lists the signed-in editor's **own** posts with status.
+- [ ] Create / edit a post in the **Tiptap** rich-text editor; save via an **`onSubmit` handler** POSTing to a
+      route handler.
+- [ ] An editor moves a post **draft → in-review** but **cannot publish**. `/dashboard/review` is the
+      **admin's** approval queue; the admin approving an in-review post publishes it and **triggers
+      revalidation** so it appears publicly.
 
 ### Comments
 
-- [ ] Readers add comments on a post via a **Server Action**, shown **optimistically**.
+- [ ] **Signed-in users only** — a signed-out reader gets a prompt to sign in, not a form. Any role can
+      comment.
+- [ ] Comments post via an **`onSubmit` handler** to a route handler, shown **optimistically** and reconciled
+      on the response. **No approval step.**
+
+### Hide / show (admin)
+
+- [ ] An admin toggles **hide/show** on any post and any comment through a route handler; hidden items leave
+      the public site, and hiding a post **revalidates** the affected pages.
+- [ ] Hiding is **independent of status** — a hidden published post keeps its approval and needs none to
+      come back.
 
 ### Framework
 
@@ -53,7 +76,9 @@ and comments. Mock content, no real backend. This is your project for the month.
 
 ## Done check
 
-A post published in the dashboard appears publicly after revalidation; drafts are not public; a post's
-metadata/OG tags are correct (check the page source); comments post optimistically; tests pass.
+A post the admin approves appears publicly after revalidation; drafts and hidden posts are not public; an
+editor has no way to publish their own post; a signed-out reader cannot comment; hiding a comment removes it
+for everyone; a post's metadata/OG tags are correct (check the page source); comments post optimistically;
+tests pass.
 
 **Stretch (optional):** custom Tiptap extensions (embeds, callouts); a related-posts section; scheduled publishing.
