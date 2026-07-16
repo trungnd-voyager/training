@@ -12,7 +12,7 @@
 
 ## Code quality
 
-- [ ] Clean API boundary — the UI never touches the store
+- [ ] Clean API boundary
 - [ ] Strict TypeScript
 - [ ] Optimistic + rollback without corrupting state
 

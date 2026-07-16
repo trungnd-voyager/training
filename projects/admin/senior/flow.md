@@ -12,7 +12,7 @@ flowchart TD
   RO --> Try["Attempt mutation (forced)"]
   Mut --> Auth{"API authorizes role?"}
   Try --> Auth
-  Auth -- forbidden --> F403["403 — rejected by the API layer"]
+  Auth -- forbidden --> F403["403"]
   Auth -- ok --> Opt["optimistic (bulk: per item)"]
   Opt --> Res{"result"}
   Res -- all ok --> Done["applied · activity logged"]

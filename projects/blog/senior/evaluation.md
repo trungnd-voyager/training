@@ -9,14 +9,14 @@
 - [ ] Server-side authz: an author can't publish; an editor can; a forced author-publish is refused
 - [ ] Review queue; comment moderation (only approved comments public)
 - [ ] Server-side search reflected in the URL
-- [ ] Tests + a Playwright E2E (author draft → editor publishes → public; unpublished not reachable)
+- [ ] Tests + Playwright E2E (author draft → editor publishes → public; unpublished not reachable)
 
 ## Code quality
 
 - [ ] Strict TypeScript
-- [ ] Authorization enforced server-side, not just in the UI
-- [ ] Revalidation targeted (tags/paths), not a blunt timer
-- [ ] Real unit + integration tests
+- [ ] Authorization enforced both client and server-side
+- [ ] Revalidation targeted (tags/paths)
+- [ ] Unit + integration tests
 
 ## Workflow
 

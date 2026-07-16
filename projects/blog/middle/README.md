@@ -6,7 +6,7 @@ and comments. Mock content, no real backend. This is your project for the month.
 ## Setup
 
 - **Stack:** Next.js (App Router) + **TypeScript**, end to end.
-- **Content:** posts in a mock DB via **route handlers** (or MDX files). Render markdown/MDX with a library.
+- **Content:** posts in a mock DB via **route handlers**; author in **[Tiptap](https://tiptap.dev/)** (store HTML, render sanitized).
   **~15 posts** ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended) —
   `slug, title, excerpt, body, tags[], authorId, status, publishedAt`. Mock users for authors.
 - **Testing:** Vitest + React Testing Library.
@@ -37,7 +37,7 @@ and comments. Mock content, no real backend. This is your project for the month.
 ### Author dashboard (auth)
 
 - [ ] Login (mock authors) sets a session; `/dashboard` lists the author's own posts with status.
-- [ ] Create / edit a post in a markdown/MDX editor with **live preview**; save via a **Server Action**.
+- [ ] Create / edit a post in the **Tiptap** rich-text editor; save via a **Server Action**.
 - [ ] Draft → in-review → publish status control; publishing makes the post public (triggering revalidation);
       `/dashboard/review` lists posts awaiting review.
 
@@ -56,4 +56,4 @@ and comments. Mock content, no real backend. This is your project for the month.
 A post published in the dashboard appears publicly after revalidation; drafts are not public; a post's
 metadata/OG tags are correct (check the page source); comments post optimistically; tests pass.
 
-**Stretch (optional):** MDX with custom components; a related-posts section; scheduled publishing.
+**Stretch (optional):** custom Tiptap extensions (embeds, callouts); a related-posts section; scheduled publishing.

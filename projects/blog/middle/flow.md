@@ -4,13 +4,13 @@ Screen / user flow for the build.
 
 ```mermaid
 flowchart TD
-  Build["Build: generateStaticParams (published)"] --> Pub["/ , /post/[slug] — SSG + ISR"]
+  Build["Build: generateStaticParams (published)"] --> Pub["/ , /post/[slug]"]
   Pub --> Vis{"published?"}
-  Vis -- no --> NF["404 — draft not public"]
+  Vis -- no --> NF["404"]
   Vis -- yes --> Read["Read post + generateMetadata / OG"]
-  Read --> Cm["Comment — Server Action, optimistic"]
+  Read --> Cm["Comment"]
   Login["/login"] --> Dash["/dashboard (auth)"]
-  Dash --> Ed["Editor + live preview"] --> SA["Save — Server Action"]
+  Dash --> Ed["Editor"] --> SA["Save"]
   SA --> Publish["Publish → revalidate"] --> Pub
   Dash --> Rev["/dashboard/review"]
 ```

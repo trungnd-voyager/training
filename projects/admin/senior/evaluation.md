@@ -16,7 +16,7 @@
 - [ ] Strict TypeScript
 - [ ] Authorization in the data layer, not the component
 - [ ] Performance actually measured under 10k rows
-- [ ] Real unit + integration tests
+- [ ] Unit + integration tests
 
 ## Workflow
 

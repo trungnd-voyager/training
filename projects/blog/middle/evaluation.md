@@ -6,7 +6,7 @@
 - [ ] `generateMetadata` per post (title/description/OG); a per-post OG image
 - [ ] Only published posts public; a draft slug 404s
 - [ ] Login/session; dashboard lists the author's posts
-- [ ] Editor with live preview; save via Server Action; draft → in-review → publish triggers revalidation; review queue
+- [ ] Tiptap editor; save via Server Action; draft → in-review → publish triggers revalidation; review queue
 - [ ] Comments via Server Action, optimistic
 - [ ] loading/error/not-found; a caching/revalidation choice they can explain; sitemap/rss/robots
 - [ ] Tests: helpers + a couple of components

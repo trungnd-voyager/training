@@ -7,8 +7,8 @@ backend. This is your project for the month.
 
 - **Stack:** **Next.js (App Router)** + **TypeScript**, built **server-first** — pages are **Server
   Components** that read the mock content; add `'use client'` only where you need interactivity (search box,
-  editor preview).
-- **Markdown:** render post bodies with a library (e.g. `react-markdown`). Don't hand-parse markdown.
+  the editor).
+- **Editor:** author posts in **[Tiptap](https://tiptap.dev/)** (rich text). Store the content as HTML and **render it sanitized** on the public site — never trust raw HTML.
 - **Data:** mock posts in a module — **~15 posts**
   ([**`@faker-js/faker`**](https://www.npmjs.com/package/@faker-js/faker) recommended); Server Components
   read it directly:
@@ -19,7 +19,7 @@ backend. This is your project for the month.
     slug: string;
     title: string;
     excerpt: string;
-    body: string; // markdown
+    body: string; // rich HTML from the editor
     tags: string[];
     authorId: string;
     status: "draft" | "in_review" | "published";
@@ -34,7 +34,7 @@ backend. This is your project for the month.
 | Route                                                  | Screen           | Purpose                   |
 | ------------------------------------------------------ | ---------------- | ------------------------- |
 | `/`                                                    | Post list        | Browse, search, load more |
-| `/post/[slug]`                                         | Post detail      | Read a post (markdown)    |
+| `/post/[slug]`                                         | Post detail      | Read a post    |
 | `/tag/[tag]`                                           | Tag listing      | Posts with a given tag    |
 | `/post/[slug]/opengraph-image`                         | OG image         | Share image per post      |
 | `/sitemap.xml`, `/rss.xml`, `/robots.txt`              | SEO endpoints    | Discoverability           |
@@ -50,13 +50,13 @@ backend. This is your project for the month.
       computed from the body; sorted newest-first; only **published** posts are public.
 - [ ] Client **search** by title (live, case-insensitive); "load more" (or pagination); empty state.
 - [ ] Tag chips link to `/tag/[tag]`; the tag list is **derived from the data**, not hardcoded.
-- [ ] Post detail renders markdown properly (headings, lists, links, images, **code blocks**) with title,
+- [ ] Post detail renders the post content **sanitized** (headings, lists, links, images, **code blocks**) with title,
       author, date, tags, reading time; a bad slug shows "Post not found".
 
 ### Author dashboard
 
 - [ ] A **mock login** gate at `/login`; `/dashboard` lists the author's own posts with status.
-- [ ] Create / edit a post in a markdown editor with **live preview**; save writes to the module.
+- [ ] Create / edit a post in the **Tiptap** rich-text editor; save writes to the module.
 - [ ] A draft → in-review → published status control; `/dashboard/review` lists posts awaiting review.
 
 ### Comments & SEO
@@ -71,7 +71,7 @@ backend. This is your project for the month.
 
 ## Done check
 
-Browsing list → post → tag works; markdown renders correctly (including code blocks); search + tag filter +
+Browsing list → post → tag works; post content renders correctly and sanitized (including code blocks); search + tag filter +
 load-more behave together; the author can write a post and move it through draft → review → published; a
 bad slug shows a not-found state.
 

@@ -10,13 +10,13 @@
 - [ ] Orders & Customers tables (read-only)
 - [ ] Dashboard tiles + Activity log
 - [ ] Survives reload; no console warnings
+- [ ] Money formatted from cents
 
 ## Code quality
 
 - [ ] Strict TypeScript
 - [ ] Updates state immutably
 - [ ] Sensible components, not much repetition
-- [ ] Money formatted from cents
 
 ## Workflow
 
