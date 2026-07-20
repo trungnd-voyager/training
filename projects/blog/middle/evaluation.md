@@ -13,6 +13,7 @@
 - [ ] Admin toggles hide/show on any post/comment → revalidation; hiding keeps approval intact
 - [ ] loading/error/not-found; a caching/revalidation choice they can explain; sitemap/rss/robots
 - [ ] Tests: helpers + a couple of components
+- [ ] Deployed; link works
 
 ## Code quality
 

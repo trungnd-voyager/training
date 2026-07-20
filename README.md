@@ -21,8 +21,8 @@ A month-long, build-to-spec program for new recruits. You pick one **project**, 
 | Project                   | What you build                                      | Stack                       | Levels                                                                                                                   |
 | ------------------------- | --------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **Admin Dashboard**       | A shop back-office: products, orders, customers     | React + Vite + React Router | [Junior](projects/admin/junior/) · [Middle](projects/admin/middle/) · [Senior](projects/admin/senior/)             |
-| **Kanban Board**          | A Trello-style board with drag-and-drop             | React + Vite + React Router | [Junior](projects/kanban/junior.md) · [Middle](projects/kanban/middle.md) · [Senior](projects/kanban/senior.md)          |
-| **E-commerce Storefront** | Catalog → cart → checkout, plus a small admin       | Next.js (App Router)        | [Junior](projects/ecommerce/junior.md) · [Middle](projects/ecommerce/middle.md) · [Senior](projects/ecommerce/senior.md) |
+| **Kanban Board**          | A Trello-style board with drag-and-drop             | React + Vite + React Router | [Junior](projects/kanban/junior/) · [Middle](projects/kanban/middle/) · [Senior](projects/kanban/senior/)          |
+| **E-commerce Storefront** | Catalog → cart → checkout, plus a small admin       | Next.js (App Router)        | [Junior](projects/ecommerce/junior/) · [Middle](projects/ecommerce/middle/) · [Senior](projects/ecommerce/senior/) |
 | **Blog**                  | Public site + author dashboard + editorial workflow | Next.js (App Router)        | [Junior](projects/blog/junior/) · [Middle](projects/blog/middle/) · [Senior](projects/blog/senior/)                |
 
 Each level is a folder with **`README.md`** (the spec the trainee builds), **`evaluation.md`** (a placement
@@ -76,7 +76,7 @@ flowchart LR
     RSC["Server + Client Components"]
     RH["Route handlers<br/>app/api/…"]
     DB[("mock DB module")]
-    RSC -->|fetch / Server Actions| RH --> DB
+    RSC -->|fetch / onSubmit mutations| RH --> DB
 ```
 
 ---
@@ -97,7 +97,7 @@ flowchart LR
 
 ## Getting started
 
-1. Pick a **project** and your **level**, and open `projects/<project>/<level>.md`.
+1. Pick a **project** and your **level**, and open `projects/<project>/<level>/README.md`.
 2. Scaffold the app for that stack.
 3. For Admin/Kanban **middle & senior**, set up the mock API layer — follow **[msw-setup.md](msw-setup.md)**.
 4. Build to the spec, commit in small steps, and open a **pull request at the end of each week**.

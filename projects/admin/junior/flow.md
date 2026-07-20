@@ -8,6 +8,7 @@ flowchart TD
   G -- no --> Login["/login"]
   Login -- submit --> G
   G -- yes --> Dash["Dashboard: summary tiles"]
+  Dash --> Out["Logout"] --> Login
   Dash --> P["Products table"]
   Dash --> O["Orders table (read-only)"]
   Dash --> C["Customers table (read-only)"]
@@ -24,5 +25,7 @@ flowchart TD
   F --> V{"valid?"}
   V -- no --> Er["inline errors · submit disabled"]
   V -- yes --> Sv["save → toast"] --> L
-  Row -- delete --> Cf{"Confirm?"} -- yes --> L
+  Row -- delete --> Cf{"Confirm?"}
+  Cf -- yes --> Del["remove → toast"] --> L
+  Cf -- no --> L
 ```

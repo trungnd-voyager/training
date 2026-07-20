@@ -17,11 +17,13 @@ flowchart TD
   Fetch -- loading --> Sk["skeleton"]
   Fetch -- error --> Er["error state"]
   Fetch -- ok --> L["rows"]
-  L --> Edit["Create / Edit"] --> Opt["optimistic update"]
+  L --> Edit["Create / Edit (products, customers)"] --> Opt["optimistic update"]
   Opt --> Save{"API save"}
   Save -- ok --> L
   Save -- fail --> RB["rollback → error toast"] --> L
+  Dash --> Out["Logout"] --> Login
 ```
 
 Table filter/sort/page live in the URL (shareable, refresh-safe, back button works). CRUD goes through the
-API layer; updates apply optimistically and roll back on failure.
+API layer; updates apply optimistically and roll back on failure — triggerable via the failure-injection
+toggle.

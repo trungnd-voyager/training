@@ -36,6 +36,7 @@ Mock data, no real backend. This is your project for the month.
   }
   ```
 
+- **Testing:** Vitest + React Testing Library.
 - **Responsive:** the shell and every screen must work down to mobile — the sidebar collapses to a toggle.
 
 ## Screens & routes
@@ -58,7 +59,8 @@ the active item highlighted, and a top bar. On mobile the sidebar collapses to a
 ### Shell & auth
 
 - [ ] Responsive shell; the active nav item reflects the current route.
-- [ ] A mock login against hardcoded users; a route guard sends logged-out visitors to `/login`
+- [ ] A mock login against hardcoded users; a route guard sends logged-out visitors to `/login`.
+- [ ] Logout in the top bar: clears the session, returns to `/login`, and back-navigation stays guarded.
 
 ### Products
 
@@ -78,16 +80,24 @@ the active item highlighted, and a top bar. On mobile the sidebar collapses to a
 ### Dashboard & Activity
 
 - [ ] Dashboard summary tiles (total products, out-of-stock count, orders, customers).
-- [ ] Activity log lists the create / edit / delete actions performed, kept in local state.
+- [ ] Activity log lists the create / edit / delete actions performed, persisted with the data.
 
 ### Global
 
 - [ ] Success/error toasts; loading & empty states with simulated latency.
 - [ ] Data persists across reload (localStorage); zero console warnings.
+- [ ] Unit tests for search, sort, pagination, and form validation; component tests for the products
+      table and the create/edit form.
+
+## Deploy
+
+- [ ] Deployed to Vercel or Netlify; the live link is in the repo README.
+- [ ] The production build runs clean — no type errors, no console warnings on the deployed app.
 
 ## Done check
 
 Every screen works client-side and is responsive; create/edit/delete update state immutably and survive
-reload; search + sort + pagination interact correctly; the form can't submit invalid data.
+reload; search + sort + pagination interact correctly; the form can't submit invalid data; tests pass;
+the deployed link works.
 
 **Stretch (optional):** a column show/hide toggle; CSV export of a table.

@@ -74,6 +74,11 @@ editor dashboard, and comments. Mock content, no real backend. This is your proj
 - [ ] A deliberate caching/revalidation choice you can explain; `sitemap.xml` / `rss.xml` / `robots.txt`.
 - [ ] Tests: unit tests for helpers (slug, excerpt, reading time) + a couple of component tests.
 
+## Deploy
+
+- [ ] Deployed to Vercel; the live link is in the repo README.
+- [ ] `next build` completes with no type errors, and the deployed app has no console warnings.
+
 ## Done check
 
 A post the admin approves appears publicly after revalidation; drafts and hidden posts are not public; an

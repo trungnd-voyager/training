@@ -114,6 +114,11 @@ content, no real backend. This is your project for the month.
 
 - [ ] Dates formatted with `Intl`; readable typography; responsive; zero console warnings.
 
+## Deploy
+
+- [ ] Deployed to Vercel; the live link is in the repo README.
+- [ ] `next build` completes with no type errors, and the deployed app has no console warnings.
+
 ## Done check
 
 Browsing list → post → tag works; post content renders correctly and sanitized (including code blocks);

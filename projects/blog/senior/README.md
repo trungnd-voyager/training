@@ -18,15 +18,15 @@ backend. This is your project for the month.
 
 ## Screens & routes
 
-| Route                                                    | Notes                                       |
-| -------------------------------------------------------- | ------------------------------------------- |
-| `/` , `/post/[slug]` , `/tag/[tag]`                      | Public site; SSG + on-demand revalidation   |
-| `/post/[slug]/opengraph-image`                           | **Dynamically generated** OG image per post |
-| `/sitemap.xml` , `/rss.xml` , `/robots.txt`              | SEO endpoints                               |
-| `/dashboard` , `/dashboard/new` , `/dashboard/[id]/edit` | Editorial dashboard (role-gated)            |
+| Route                                                    | Notes                                        |
+| -------------------------------------------------------- | -------------------------------------------- |
+| `/` , `/post/[slug]` , `/tag/[tag]`                      | Public site; SSG + on-demand revalidation    |
+| `/post/[slug]/opengraph-image`                           | **Dynamically generated** OG image per post  |
+| `/sitemap.xml` , `/rss.xml` , `/robots.txt`              | SEO endpoints                                |
+| `/dashboard` , `/dashboard/new` , `/dashboard/[id]/edit` | Editorial dashboard (role-gated)             |
 | `/dashboard/review`                                      | **Admin's** queue of posts awaiting approval |
-| `/signup`                                                | Create an account (editor checkbox)         |
-| `/login`                                                 | Session login                               |
+| `/signup`                                                | Create an account (editor checkbox)          |
+| `/login`                                                 | Session login                                |
 
 ## Feature specs
 
@@ -79,6 +79,11 @@ backend. This is your project for the month.
 - [ ] Meaningful unit + integration tests (authorization, revalidation, workflow transitions).
 - [ ] **At least one Playwright E2E:** an editor writes a draft → an admin approves → it appears publicly; an
       unpublished or hidden post is not publicly reachable.
+
+## Deploy
+
+- [ ] Deployed to Vercel; the live link is in the repo README.
+- [ ] `next build` completes with no type errors, and the deployed app has no console warnings.
 
 ## Done check
 

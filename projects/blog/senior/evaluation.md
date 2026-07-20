@@ -12,6 +12,7 @@
 - [ ] Admin-only hide/show on posts and comments, authorized server-side; public = published && !hidden
 - [ ] Server-side search reflected in the URL
 - [ ] Tests + Playwright E2E (editor draft → admin approves → public; unpublished/hidden not reachable)
+- [ ] Deployed; link works
 
 ## Code quality
 

@@ -24,6 +24,7 @@ Data comes from a mock API layer, not a real backend. This is your project for t
 | `/products/new`, `/products/:id`, `/products/:id/edit` | Product CRUD | Create / view / edit      |
 | `/orders`                                              | Orders       | Query via API, URL-synced |
 | `/customers`                                           | Customers    | Query via API, URL-synced |
+| `/customers/new`, `/customers/:id/edit`                | Customer CRUD | Create / edit            |
 | `/activity`                                            | Activity log | Feed of changes           |
 
 **Shared shell:** sidebar (Dashboard, Products, Orders, Customers, Activity) + top bar; active item marked;
@@ -34,7 +35,9 @@ collapses on mobile.
 ### Auth
 
 - [ ] `/login` against mock users; store a session (memory + localStorage).
-- [ ] The whole admin is protected by a **route guard** — logged-out visitors are redirected to `/login`.
+- [ ] The whole admin is protected by a **route guard** — logged-out visitors are redirected to `/login`,
+      and land back on the route they asked for after signing in.
+- [ ] Logout clears the session; a stale session is rejected by the API layer, not just the UI.
 
 ### Data tables (Products, Orders, Customers)
 
@@ -44,10 +47,13 @@ collapses on mobile.
       reproduces the view; refresh keeps it.
 - [ ] Columns, cents → currency formatting, and empty states per resource.
 
-### CRUD (Products)
+### CRUD
 
 - [ ] Create / edit / delete through the API layer, with optimistic updates that roll back on failure.
 - [ ] Controlled form + validation (name/SKU required, price/stock ≥ 0, SKU unique); delete confirms first.
+- [ ] Product detail at `/products/:id` with Edit / Delete; an unknown id renders "not found", not a crash.
+- [ ] Customers get the same CRUD treatment (name/email required, email unique) — share the form,
+      table, and query plumbing rather than copying it.
 
 ### Dashboard & Activity
 
@@ -58,12 +64,21 @@ collapses on mobile.
 
 ### App concerns
 
-- [ ] A consistent loading pattern per route; an error boundary; a catch-allnot-found route.
-- [ ] Tests: unit tests for the query/table logic (sort/filter/paginate) + a couple of component tests.
+- [ ] A consistent loading pattern per route; an error boundary; a catch-all not-found route.
+- [ ] The mock API can be made to fail on demand (a query flag, a dev-only toggle, or a seeded error rate)
+      so rollback is demonstrable without editing code.
+- [ ] Tests: unit tests for the query/table logic (sort/filter/paginate) + component tests covering
+      optimistic success and rollback. Cover every module under the API layer.
+
+## Deploy
+
+- [ ] Deployed to Vercel or Netlify; the live link is in the repo README.
+- [ ] The production build runs clean — no type errors, no console warnings on the deployed app.
 
 ## Done check
 
 Table state lives in the URL and survives refresh + back; a slow dashboard section doesn't block the table;
-optimistic edits reconcile and roll back on a forced failure; logged-out access redirects; tests pass.
+optimistic edits reconcile and roll back on a forced failure; logged-out access redirects to the route it
+came from; products and customers share their CRUD plumbing; tests pass.
 
 **Stretch (optional):** CSV export; saved/named filters.

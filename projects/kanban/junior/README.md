@@ -5,7 +5,7 @@ Mock data, no real backend. This is your project for the month.
 
 ## Setup
 
-- **Stack:** React + Vite + **TypeScript**, with **React Router**. Avoid `any`.
+- **Stack:** React + Vite + **TypeScript**, with **React Router**.
 - **Drag-and-drop:** use a library — **dnd-kit** is recommended (it's accessible). Don't hand-roll HTML5
   drag events.
 - **Data:** mock data in a module, stored **normalized** (this shape matters — it's part of the exercise),
@@ -34,6 +34,7 @@ Mock data, no real backend. This is your project for the month.
   }
   ```
 
+- **Testing:** Vitest + React Testing Library.
 - **Responsive:** the board works down to mobile — columns scroll horizontally.
 
 ## Screens & routes
@@ -52,13 +53,17 @@ Mock data, no real backend. This is your project for the month.
 
 - [ ] A **mock login** against hardcoded users; a route guard sends logged-out visitors to `/login`
       (a localStorage session is enough).
+- [ ] Logout in the header: clears the session, returns to `/login`, and back-navigation stays guarded.
 - [ ] `/` lists the user's boards (a board belongs to its owner); create / rename / delete a board.
+      Deleting a board confirms first and takes its columns and cards with it — no orphaned card ids.
 
 ### Board view
 
 - [ ] Columns left-to-right; each shows a card count; an empty column shows a placeholder, not a blank gap.
 - [ ] A card shows title, a description indicator, label chips, and a due-date pill.
-- [ ] Add / rename (inline) / delete columns (delete confirms).
+- [ ] Add / rename (inline) / delete columns (delete confirms, and says how many cards go with it).
+- [ ] **Reorder the columns themselves** by dragging — `columnOrder` is the source of truth for their
+      order, and the new order survives reload.
 
 ### Cards
 
@@ -75,12 +80,20 @@ Mock data, no real backend. This is your project for the month.
 
 ### Activity & global
 
-- [ ] Activity log lists the moves / edits made, kept in local state.
+- [ ] Activity log lists the moves / edits made, persisted with the board data.
 - [ ] The board **persists across reload** (localStorage); responsive; zero console warnings.
+- [ ] Unit tests for the reorder/move logic and the label filter; component tests for the board and the
+      card modal.
+
+## Deploy
+
+- [ ] Deployed to Vercel or Netlify; the live link is in the repo README.
+- [ ] The production build runs clean — no type errors, no console warnings on the deployed app.
 
 ## Done check
 
-Cards drag within and across columns and survive reload; board/column/card CRUD all work; the modal is shareable and a
-refresh shows the full page; state stays consistent (never a lost or duplicated card).
+Cards drag within and across columns and survive reload; columns reorder too; board/column/card CRUD all
+work and deleting a board leaves nothing orphaned; the modal is shareable and a refresh shows the full
+page; state stays consistent (never a lost or duplicated card); tests pass.
 
 **Stretch (optional):** card colors beyond basic labels; a WIP limit per column.

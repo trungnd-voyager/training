@@ -13,6 +13,7 @@
 - [ ] Admin toggles hide/show on any post and any comment; hiding doesn't reset approval
 - [ ] Basic sitemap/rss/robots + per-post OG image; hidden/unpublished posts excluded
 - [ ] Dates via `Intl`; responsive; no console warnings
+- [ ] Deployed; link works
 
 ## Code quality
 

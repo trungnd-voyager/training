@@ -3,7 +3,7 @@
 ## Specs
 
 - [ ] Responsive shell, active nav follows the route
-- [ ] Login + guard (logged-out → `/login`)
+- [ ] Login + guard (logged-out → `/login`); logout clears the session
 - [ ] Products table: search, sort, pagination, low-stock flag, empty state
 - [ ] Create/Edit form validates; submit stays off until valid; toast on save
 - [ ] Product detail + "not found"; delete asks first
@@ -11,12 +11,15 @@
 - [ ] Dashboard tiles + Activity log
 - [ ] Survives reload; no console warnings
 - [ ] Money formatted from cents
+- [ ] Tests for table logic + form validation, and they pass
+- [ ] Deployed; link works
 
 ## Code quality
 
 - [ ] Strict TypeScript
 - [ ] Updates state immutably
 - [ ] Sensible components, not much repetition
+- [ ] Tests assert behaviour, not implementation detail
 
 ## Workflow
 
